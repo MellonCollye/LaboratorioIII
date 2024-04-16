@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+<body>
+    <main>
+        <h1>Formulario Html</h1>
+        <form action="" method="get">
+            <section>
+                <h3>Entradas simples</h3>
+                    <ul>
+                        <li>
+                            <label for="apellido">Apellido</label>
+                            <br>
+                            <input type="text" name="apellido" id="apellido">
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <label for="contrasenia">Contraseña</label>
+                            <br>
+                            <input type="password" name="contrasenia" id="contrasenia">
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <label for="oculto">Oculto</label>
+                            <br>
+                            <input type="hidden" id="oculto">
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <label for="disabled">Campo deshabilitado</label>
+                            <br>
+                            <input type="text" id="disabled" value="Disabled" disabled>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <label for="readonly">Campos de lectura</label>
+                            <br>
+                            <input type="text" id="readonly" value="Readonly" readonly>
+                        </li>
+                    </ul>
+            
+            </section>
+
+            <section>
+                <h3>Entradas de seleccion</h3>
+                
+                    <ul>
+                        <li>
+                            <label for="practica deportes">Practica deportes</label>
+                            <br>
+                            <input type="checkbox" name="practicaDeportes" id="practicaDeportes">
+                        </li>
+                        <li>
+                            <label for="Practica musical">Practica musical</label>
+                            <br>
+                            <input type="checkbox" name="practicaMusica" id="practicaMusica">
+                        </li>
+                        <li>
+                            <label for="">Practica de pintura artistica</label>
+                            <br>
+                            <input type="checkbox" name="practicaMusica" id="practicaMusica">
+                        </li>
+                        <li>
+                            <label for="masculino">Sexo</label>
+                            <br>
+                            <input type="radio" name="sexo" id="masculino" value="m" checked="checked">Masculino</input>
+                            <input type="radio" name="sexo" id="femenino" value="f" >Femenino</input>
+                        </li>
+                        <li>
+                            <label for="estudios">Estudios cursados</label>
+                            <br>
+                            <select name="estudios" id="estudios">
+                                <option value="primario">Primario</option>
+                                <option value="secundario">Secundario</option>
+                                <option value="terciario">Terciario</option>
+                                <option value="universitario">Universitario</option>
+                                <option value="postgrado">Postgrado</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="date">Fecha y Hora</label>
+                            <br>
+                            <input type="date" name="fecha" id="fecha">
+                            <input type="time" name="hora" id="hora">
+                        </li>
+                        <li>
+                            <label for="color">Color</label>
+                            <br>
+                            <input type="color" name="color" id="color">
+                        </li>
+                    </ul>
+            
+            </section>
+
+            <section>
+                <h3>Entradas con validacion</h3>
+                
+                    <ul>
+                        <li>
+                            <label for="">Comentario (validacion por requerido)</label>
+                            <br>
+                            <input type="text" name="" id="">
+                        </li>
+                        <li>
+                            <label for="">Email con doble validacion(x@x y required)</label>
+                            <br>
+                            <input type="text" name="" id="">
+                        </li>
+                        <li>
+                            <label for="">Numero entero limitado (validacion por tipo numerico y cuotas)</label>
+                            <br>
+                            <input type="text" name="" id="">
+                        </li>
+                        <li>
+                            <label for="">Numero decimal</label>
+                            <br>
+                            <input type="text" name="" id="">
+                        </li>
+                        <li>
+                            <label for="">URL (validacion por required, escribir http:\\)</label>
+                            <br>
+                            <input type="text" name="" id="">
+                        </li>
+                        <li>
+                            <label for="">Pattern de validacion</label>
+                            <br>
+                            <input type="text" name="" id="">
+                        </li>
+                        <li>
+                            <label for="">Pattern de valicacion</label>
+                            <br>
+                            <input type="text" name="" id="">
+                        </li>
+                        <li>
+                        <button>Enviar</button>
+                        </li>
+                        <li> 
+                            <button>Reestablecer</button>
+                        </li>
+                    </ul>       
+            </section>
+        </form>
+    </main>
+</body>
+</html>
