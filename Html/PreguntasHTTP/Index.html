@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <h1>Preguntas sobre protocolo HTTP</h1>
+    </header>
+
+    <hr>
+
+    <nav>
+        <h2>Referencias de interes</h2>
+
+        <ul>
+            <li>
+                <a href="https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_hipertexto" target="_blank">Wikipedia</a>
+            </li>
+            <li>
+                <a href="https://www.ionos.es/digitalguide/hosting/cuestiones-tecnicas/protocolo-http/"target="_blank">Ionos</a>
+            </li>
+        </ul> 
+
+    </nav>
+    
+    <hr>
+
+    <main>
+        <h2>Seccion de Preguntas sobre HTTP</h2>
+
+        <hr>
+
+        <ul>
+            <li>
+                <h3>1. ¿Sobre que protocolo binario esta montado el protocolo HTTP</h3>
+                <p>El protocolo HTTP esta montado sobre el protocolo TCP, este establecera conexiones entre el cliente y el servidor, 
+                    y garantizara la entrega confiable de datos a través de la red. HTTP estaria, relativamente al modelo OSI, en la capa de aplicacion,
+                    mientras que TCP estaria en la capa de transporte.
+                </p>
+            </li>
+            <li>
+                <h3>2. ¿Cuales son los clientes HTTP y los servidores HTTP mas utilizados?</h3>
+                <p>Los clientes HTTP mas utilizados son Postman, cURL e Insomnia, mientras que los servidores HTTP mas usados son Apache, Nginx y Microsoft Internet Information Services (IIS).</p>
+            </li>
+            <li>
+                <h3>3. ¿Que verbos admite un comando en el requerimiento HTTP?</h3>    
+                <p>Los verbos mas utilizados son GET, POST, PUT, DELETE y PATCH, pero tambien existen otros mas especializados como HEAD, OPTIONS, TRACE y CONNECT.</p>
+            </li>
+            <li>
+                <h3>4. ¿Que contenido lleva el body de un requerimiento HTTP?</h3>
+                <p>Para la transmision de datos desde el cliente al server, se envia un request. Este request puede ser un GET o POST, PUT, PATCH, etc.
+                    En el caso de GET los datos viajan como variables declaradas en la url. En el caso de POST u otros los datos viajan en el body.
+                    El request HTTP puede llevar en el body datos, ya sean Binarios, Texto, Streams(Audio, Video, etc), Archivos, JSON, XML, entre otros. Pueden utilizarse, por ejemplo, para hacer operaciones CRUD en una base de datos.
+                    
+                </p>
+            </li>
+            <li>
+                <h3>5. ¿Que diferencia existe entre un URL y un URI?</h3>
+                <p>La diferencia entre un URL y un URI es que el URI es un identificador unico para un recurso web relativo a una conexion TCP ya establecida; mientras
+                    que la URL es un identificador unico para un sitio web, con este identificador se establecera la conexion TCP ya mencionada.</p>
+            </li>
+            <li>
+                <h3>6. ¿Como se almacena información relacionada con las respuestas http?</h3>
+                <p>Depende de las caracteristicas del proyecto, por ejemplo, si mi respuesta es un flujo de datos por que estoy mirando Youtube la informacion se ira almacenando en una cache de cierta manera;
+                    en cambio, si mi respuesta es una booleana que me indica si se inserto un registro en una db, puede llegar a guardarse en un logfile. Otro caso podria ser el inverso, hice un request a un REST
+                    y este me devuelve como respuesta un JSON denotando los datos de mi consulta.
+                </p>
+            </li>
+            <li>
+                <h3>7. ¿Que significa Virtual hosting?</h3>
+                <p>Virtual Hosting se refiere a la capacidad de un servidor web de alojar varios sitios web en el mismo server fisico. HTTP 1.1 tiene la capacidad de correr
+                    multiples dominios en una sola direccion IP.
+                </p>
+            </li>
+            <li>
+                <h3>8. ¿Porque el HTTP se considera STATELESS?</h3>
+                <p>El protocolo HTTP se considera Stateless ("Sin estado") por que no tiene la capacidad por si mismo de perseverar estados al cerrar la conexion, una vez que la conexion se pierde
+                    HTTP no mantiene ninguna información sobre el estado de las comunicaciones entre el cliente y el servidor. Cada solicitud HTTP que realiza un cliente es 
+                    independiente y no tiene conocimiento de las solicitudes anteriores o futuras realizadas por el mismo cliente.
+                </p>
+            </li>
+            <li>
+                <h3>9. ¿Como va a mejorar la velocidad de la WEB en poco tiempo?</h3>
+                <p>La velocidad de la web puede llegar a mejorar gracias a la implementacion de una mejora sobre HTTP 1.1, HTTP 2.0.
+                    Esta actualizacion trae consigo requerimientos multiplexados (puede hacer varias request sin tener que esperar respuestas para hacerlas),
+                    entregas multiplexadas (se pueden hacer varias entregas de datos al mismo tiempo) y transmicion de datos en formato de paquetes binarios.
+                </p>
+            </li>
+            <li>
+                <h3>10. ¿Como va a mejorar el comportamiento de una aplicación WEB en ambientes ruidosos o de débil conexión?</h3>
+                <p>Se puede mejorar el comportamiento de un sitio web en ambientes ruidosos con una nueva implementacion de HTTP, HTTP 3.0. Esta nueva version esta montada
+                    sobre un protocol QUIC y un protocolo UDP, y ofrece una gran velocidad asi como una gran capacidad de reconexion, mejorando la conexion en ambientes ruidosos, como por ejemplo, un aeropuerto.
+
+                </p>
+            </li>
+        </ul>
+
+    </main>
+        
+    <hr>
+
+    <section>    
+        <h2>Seccion de imagenes representativas del protocolo</h2>
+        <img src="HTTP1.png" alt="Diagrama de flujo HTTP" style="height: 300px;">
+        <img src="HTTP2.png" alt="HTTP como capa de aplicacion" style="height: 300px;">
+        <img src="HTTP3.png" alt="Modelo OSI" style="height: 300px;">
+    </section>
+    
+    <hr>
+    
+    <section>
+        <h2>Seccion de videos representativos del protocolo</h2>
+        <video width="640" height="360" controls>
+            <source src="SSL, TLS, HTTP, HTTPS Explained.mp4" type="video/mp4">
+        </video>  </section>
+
+    <hr>
+
+    <footer>
+        <h1>Datos del Alumno</h1>
+        <p>Gaspar Theza 28526</p>
+        <a href="">gaspartheza@gmail.com</a>
+    </footer>
+
+</body>
+</html>
