@@ -1,0 +1,80 @@
+
+body{
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main h1{
+    margin:0%;
+}
+
+main{
+    background-color: rgb(100,120, 150);
+    width: 80%;
+}
+
+main div{
+    width: 50%;
+    margin-left: 25%;   
+    margin-top: 5vh;
+    height: 25vh;
+    border-radius: 3%;
+}
+
+#firstdiv{
+    background-color: grey;
+    box-shadow: 15px 15px  rgba(0, 0, 0, 1);
+
+}
+#seconddiv{
+    background: radial-gradient(circle, orange, blue);
+}
+#thirddiv{
+    display: flex;
+    background: linear-gradient(135deg,orange, blue);
+    justify-content: center;
+    
+}
+
+#thirddiv img{
+    height: 100%;
+
+}
+
+#fourthdiv{
+    background: linear-gradient(135deg,orange, white, blue);
+    padding-left: 3vw;
+    padding-top: 1vh;
+    box-sizing: border-box;
+    text-align: left;
+    box-shadow: -15px -15px  rgba(0, 0, 0, 1);
+
+}
+#fifthdiv{
+    background: linear-gradient(45deg,orange, white, blue);
+    margin-bottom: 5vh;
+    text-align: left;
+
+}
+
+@media (min-width: 1081px) {
+    #firstdiv {
+        background-color: grey; 
+    }
+}
+  
+ 
+@media (max-width: 1080px) and (min-width: 600px) {
+    #firstdiv {
+        background-color: rgb(255, 255, 137);
+    }
+}
+  
+@media (max-width: 599px) {
+    #firstdiv {
+        background-color: lightblue;
+    }
+}

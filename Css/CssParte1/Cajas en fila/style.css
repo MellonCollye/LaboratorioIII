@@ -1,0 +1,68 @@
+
+body{
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+}
+
+
+main{
+
+    background-color: rgb(100,120, 150);
+    width: 80%;
+}
+
+
+
+
+main div{
+    width: 150px;
+    margin-left: 2vw;
+    margin-top: 5vh;
+    height: 10vh;
+    border-radius: 3%;    
+    box-shadow: 5px 5px  rgba(0, 0, 0, 1);
+}
+
+#firstdiv{
+    background: linear-gradient(0deg,orange, blue);
+    padding-left: 2vw;
+    padding-top: 2vw;
+    box-sizing: border-box;
+    float: left;
+}
+
+#seconddiv{
+    background: radial-gradient(circle, orange, blue);
+    float: left;
+}
+
+#thirddiv{
+    background: linear-gradient(135deg,orange, blue);
+    float: left;
+    display: flex;
+    justify-content: center;
+}
+
+#thirddiv img{
+    height: 100%;
+    float: left; 
+}
+
+#fourthdiv{
+    background: linear-gradient(135deg,orange, white, blue);
+    padding-left: 3vw;
+    padding-top: 1vh;
+    box-sizing: border-box;
+    text-align: left;
+    float: left;
+
+}
+#fifthdiv{
+    background: linear-gradient(45deg,orange, white, blue);
+    margin-right: 20vw;
+    margin-bottom: 5vh;
+    text-align: left;
+    float: left;
+}
