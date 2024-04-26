@@ -1,0 +1,48 @@
+
+body{
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main h1{
+    margin:0%;
+}
+
+main{
+    background-color: rgb(100,120, 150);
+    width: 80%;
+}
+
+main div{
+    width: 50%;
+    margin-left: 25%;   
+    margin-top: 5vh;
+    height: 25vh;
+    border-radius: 3%;
+}
+
+#firstdiv{
+    background-color: grey;
+
+}
+#seconddiv{
+    background-color: grey;
+
+}
+#thirddiv{
+    background-image: url(./landscape-studio-ghibli-upscaled.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+#fourthdiv{
+    background-color: grey;
+
+}
+#fifthdiv{
+    background-color: grey;
+    margin-bottom: 5vh;
+}

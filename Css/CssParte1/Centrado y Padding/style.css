@@ -1,0 +1,30 @@
+.container{
+    width: 50vw;
+}
+
+p{
+    margin: 0%;
+    font-size: large;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+#firstcontainer{
+    background-color: aqua;
+}
+
+#secondcontainer{
+    background-color: bisque;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+#thirdcontainer{
+    background-color: greenyellow;
+    padding-left: 10rem;
+    box-sizing: border-box;
+}
