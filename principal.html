@@ -1,32 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Ejercicios del curso</title>
+    <style>
+        footer {
+            position: absolute;
+            bottom: 0;
+        }
+
+        * {
+            font-family: monospace;
+        }
+
+        .menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: start;
+            width: min-content;
+        }
+
+        .menu li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            width: 12vw;
+        }
+
+        .menu li a:hover {
+            background-color: #111;
+        }
+
+        ul h1 {
+            color: white;
+            font-size: 18px;
+            text-align: center;
+
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            list-style-type: none;
+            background-color: #333;
+            padding-inline-start: 0;
+        }
+
+        .dropdown-column {
+            display: none;
+            list-style-type: none;
+            background-color: #333;
+            padding-inline-start: 0;
+            
+        }
+
+
+        .dropdown-column li a {
+            padding: 6px 16px;
+            color: white;
+            text-decoration: none;
+
+        }
+
+        .dropdown-content li:hover {
+            background-color: #111;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
+
+        .dropdown:hover .dropdown-column {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
 </head>
+
 <body>
 
     <h1>Indice de ejercicios Laboratorio III 2024</h1>
 
-    <ul>
-        <li>
-            <a href="./Html/Index.html">Html</a>
+    <ul class="menu">
+        <li class="dropdown">
+            <a href="#">Html</a>
+            <ul class="dropdown-content">
+                <ul class="dropdown-column">
+                    <li>
+                        <a href="./Html/PreguntasHTTP/Index.html">Preguntas HTTP</a>
+                    </li>
+                    <li>
+                        <a href="./Html/Tablas/index.html">Tablas</a>
+                    </li>
+                    <li>
+                        <a href="./Html/Formularios/index.html">Formularios</a>
+                    </li>
+                    <li>
+                        <a href="./Html/IFrame/index.html">IFrame</a>
+                    </li>
+                </ul>           
+            </ul>
         </li>
-        <li>
-            <a href="./Css/index.html">Css</a>
+        <li class="dropdown">
+            <a href="#">Css</a>
+            <ul class="dropdown-content">
+                <ul class="dropdown-column">
+                    <h1>Parte 1</h1>
+                    <li>
+                        <a href="./Css/CssParte1/Centrado y Padding/index.html">Centrado y Padding</a>
+                    </li>
+                    <li>
+                        <a href="./Css/CssParte1/Cajas en pila/index.html">Cajas en pila</a>
+                    </li>
+                    <li>
+                        <a href="./Css/CssParte1/Cajas en fila/index.html">Cajas en fila</a>
+                    </li>
+                    <li>
+                        <a href="./Css/CssParte1/Div sin tabla/index.html">Div sin tabla</a>
+                    </li>
+                    <li>
+                        <a href="./Css/CssParte1/Selectores de evento/index.html">Selectores de evento</a>
+                    </li>
+                    <li>
+                        <a href="./Css/CssParte1/ContenedoresRelativos/index.html">Contenedores relativos</a>
+                    </li>
+                </ul>
+                <ul class="dropdown-column">
+                    
+                </ul>
+
+            </ul>
         </li>
-        <li>
-            <a href="">JavaScript</a>
+        <li class="dropdown">
+            <a href="#">JavaScript</a>
+            <ul class="dropdown-content">
+                <ul class="dropdown-column">
+                    <h1>Parte 1</h1>
+                    <li>
+                        <a href="./Javascript/JsParte1/Sentencias Basicas/index.html">Sentencias Basicas</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/JsParte1/Debugger/index.html">Debugger</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/JsParte1/ComandoEnEvento/index.html">Comando en evento</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/JsParte1/VariablesSimples/index.html">Variables Basicas</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/JsParte1/Alcance/index.html">Alcance</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/JsParte1/Arrays/index.html">Arrays</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/JsParte1/OperacionesSobreInput/index.html">Operaciones sobre input</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/JsParte1/OperacionesEntreInputs/index.html">Operaciones entre inputs</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/JsParte1/FuncionesCompartidas/index.html">Funciones Compartidas</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/JsParte1/Funcion Flecha/index.html">Funcion Flecha</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/JsParte1/Location/index.html">Location</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/JsParte1/FormConfirmation/index.html">Form Confirmacion</a>
+                    </li>
+                </ul>
+                <ul class="dropdown-column">
+                    <h1>Parte 2</h1>
+                    <li>
+                        <a href="./Javascript/jsParte2/VariablesObjetoDato/index.html">Variables Objeto</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/jsParte2/ValidacionInput/index.html">Validacion Input</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/jsParte2/FormularioABM/index.html">Formulario ABM</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/jsParte2/CambiosDeEstiloDinamicos/index.html">Cambios de estilo
+                            dinamicos</a>
+                    </li>
+                    <li>
+                        <a href="./Javascript/jsParte2/CreacionDeObjetos/index.html">Creacion de Objetos</a>
+                    </li>
+                </ul>
+            </ul>
         </li>
-        <li>
-            <a href="">Especiales</a>
+        <li class="dropdown">
+            <a href="#">Especiales</a>
+            <ul class="dropdown-content">
+                <ul class="dropdown-column">
+                    
+                </ul>
+            </ul>
         </li>
-        <li>
-            <a href="">Php</a>
+        <li class="dropdown">
+            <a href="#">Php</a>
+            <ul class="dropdown-content">
+                <ul class="dropdown-column">
+                    <h1>Parte 1</h1>
+                    <li>
+                        <a href="./Php/Base/script.php">Base</a>
+                    </li>
+                    <li>
+                        <a href="./Php/Include/script.php">Include</a>
+                    </li>
+                    <li>    
+                        <a href="./Php/VariablesGlobales/script.php">Variables Globales</a>
+                    </li>
+                    <li>
+                        <a href="./Php/VariablesTipoObjeto/script.php">Variables Tipo Objeto</a>
+                    </li>
+                </ul>        
+            </ul>
         </li>
     </ul>
+    <footer>
+        <h3>Legajo: 28526</h3>
+        <h3>Nombre: Gaspar Theza</h3>
 
-    
+    </footer>
+
+
 </body>
+
 </html>

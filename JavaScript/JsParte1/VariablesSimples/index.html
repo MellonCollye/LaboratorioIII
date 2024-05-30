@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables Simples</title>
+</head>
+<body>
+    <button id="a">var x</button>
+    <button id="b">var a = 1</button>
+    <button id="c">var b = "1"</button>
+    <button id="d">var c = 2</button>
+    <button id="e">suma = a + b</button>
+    <button id="f">suma = a + c</button>
+
+    <div style="border: 5px solid black; width: 80%;height: 50vh;"></div>
+
+    <script>
+        let a, b, c;
+        const contenedor = document.querySelector('div')
+        const output = (x,size) => {
+            contenedor.innerHTML = '<p>Valor de z: ' + x +'<br> Tipo de z: ' + typeof x + '</p>'
+        }
+        document.querySelector('#a').addEventListener('click',()=>
+        {
+            var x
+            output(x)
+        })
+        document.querySelector('#b').addEventListener('click',()=>
+        {
+            var x = 1
+            output(x)
+            a = x
+        })
+        document.querySelector('#c').addEventListener('click',()=>
+        {
+            var x = "1"
+            output(x)
+            b = x
+        })
+        document.querySelector('#d').addEventListener('click',()=>
+        {
+            var x = 2
+            output(x)
+            c = x
+        })
+
+        document.querySelector('#e').addEventListener('click',()=>
+        {
+            var x = a + b
+            output(x)
+        })
+
+        document.querySelector('#f').addEventListener('click',()=>
+        {
+            var x = a + c
+            output(x)
+        })
+
+
+    </script>
+</body>
+</html>

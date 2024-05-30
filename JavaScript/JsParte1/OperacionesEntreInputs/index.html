@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones entre inputs</title>
+    <style>
+        input {
+            margin-bottom: 5px;
+        }
+
+        button {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body style="display: flex; flex-direction: column;">
+    <h1>Introucir un valor, luego puede calcular</h1>
+    <label>Numero 1</label>
+    <input id="input1" type="number">
+    <label>Numero 2</label>
+    <input id="input2" type="number">
+    <label>Numero 3</label>
+    <input id="input3" type="number">
+    <label>Resultado</label>
+    <input id="result" type="number" readonly>
+
+    <button id="a">Sumar</button>
+    <button id="b">Media Aritmetica</button>
+    <button id="c">Mayor</button>
+
+    <script>
+        const result = document.querySelector('#result')
+        document.querySelector('#a').addEventListener('click', () => {
+            var num1 = parseInt(document.querySelector('#input1').value)
+            var num2 = parseInt(document.querySelector('#input2').value)
+            var num3 = parseInt(document.querySelector('#input3').value)
+
+            result.value = num1 + num2 + num3
+
+        })
+        document.querySelector('#b').addEventListener('click', () => {
+            var num1 = parseInt(document.querySelector('#input1').value)
+            var num2 = parseInt(document.querySelector('#input2').value)
+            var num3 = parseInt(document.querySelector('#input3').value)
+
+            result.value = (num1 + num2 + num3) / 3
+        })
+        document.querySelector('#c').addEventListener('click', () => {
+            var num1 = parseInt(document.querySelector('#input1').value)
+            var num2 = parseInt(document.querySelector('#input2').value)
+            var num3 = parseInt(document.querySelector('#input3').value)
+
+            if (num1 >= num2 && num1 >= num3) {
+                result.value = num1;
+            } else if (num2 >= num1 && num2 >= num3) {
+                result.value = num2;
+            } else {
+                result.value = num3;
+            }
+
+        })
+    </script>
+</body>
+
+</html>

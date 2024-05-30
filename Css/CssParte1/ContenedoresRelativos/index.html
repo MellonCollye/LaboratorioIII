@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contenedores Relativos</title>
+    <style>
+        *{
+            margin-top: 5px;
+            margin-left: 0px;
+        }
+        h1{
+            font-size: medium;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+            height: 100%;
+        }
+        .container{
+            position: absolute;
+            background-color: lightblue;
+            width: 90%;
+            height: 100%;
+ 
+        }
+        .container div{
+            width: 70%;
+        }
+        .m1{
+            position: relative;
+            background-color: #191919;
+            color: white;
+            height: 10%;
+        }
+        .m2{
+            position: relative;
+            background-color: green;
+            left: 20vw;
+            height: 20%;
+        }
+        .m3{
+            position: relative;
+            background-color: burlywood;
+            left: 40vw;
+            height: 18%;
+        }
+        .m4{
+            position: fixed;
+            background-color: blue;
+            color: aliceblue;
+            height: 40%;
+            width: 60%;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Contenedores relativos</h1>
+        <div class="m1">
+            <h1>Hola, soy el div clase 1</h1>
+        </div>
+        <div class="m1">
+            <h1>Hola, soy el div clase 1</h1>
+        </div>
+
+        <div class="m2">
+            <h1>Hola, soy el div clase 2</h1>
+        </div>
+        <div class="m2">
+            <h1>Hola, soy el div clase 2</h1>
+        </div>
+
+        <div class="m3">
+            <h1>Hola, soy el div clase 3</h1>
+        </div>
+
+        <div class="m2">
+            <h1>Hola, soy el div clase 2</h1>
+        </div>
+        <div class="m2">
+            <h1>Hola, soy el div clase 2</h1>
+        </div>
+
+        <div class="m4">
+            <h1>Hola, soy el div modal</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sequi eos, provident, libero officia consequatur illo velit neque beatae reiciendis, doloribus eum! Perspiciatis laborum praesentium quo eveniet numquam beatae facere.</p>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

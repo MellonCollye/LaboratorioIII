@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validacion de un input</title>
+</head>
+
+<body>
+    <h1>Validacion de input</h1>
+    <form method="get">
+        <label for="">Ingrese el dia del mes</label>
+        <input type="text" name="dia">
+        <label for="">Ingrese el mes</label>
+        <input type="text" name="mes">
+        <div>
+            <input type="submit">
+            <input type="reset">
+        </div>
+    </form>
+    <script>
+
+        const validate = (data) => {
+            const { dia, mes } = data
+
+            if (isNaN(dia) || isNaN(mes)) {
+                alert('La fecha es un numero')
+            }
+            if (dia > 31 || dia < 0) {
+                alert('El dia debe estar entre 0 y 31')
+            }
+            if (mes < 0 || mes > 12) {
+                alert('El mes debe estar entre 0 y 12')
+            }
+        }
+        const form = document.querySelector('form')
+        form.addEventListener('keyup', () => {
+            const dia = document.querySelector('input[name="dia"]')
+            const mes = document.querySelector('input[name="mes"]')
+
+            const data = {
+                "dia": dia.value,
+                "mes": mes.value
+            }
+            validate(data)
+        })
+
+
+    </script>
+</body>
+
+</html>

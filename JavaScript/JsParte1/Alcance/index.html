@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcance</title>
+</head>
+<body>
+    <button id="a">Inicializacion desde adentro de un procedimiento</button>
+    <button id="b">Inicializacion forzada desde adentro de un procedimiento</button>
+    <button id="c">Muestra variable global</button>
+    <script>
+        const funcion1 = () =>{
+            var a = prompt('ingrese un valor:')
+            output(a)
+            alert('Esta es la variable local')
+        }
+        const funcion2 = () => {
+            a  = prompt('ingrese un valor:')
+            output(a)
+            alert('Esta es la variable global') 
+        }
+        const funcion3 = () => {
+            output(a)
+        }
+        const output = (x) => {
+            alert('valor:' + x + '     tipo:' + typeof x)
+        }
+        document.querySelector('#a').addEventListener('click',funcion1)
+        document.querySelector('#b').addEventListener('click',funcion2)
+        document.querySelector('#c').addEventListener('click',funcion3)
+      
+    </script>
+</body>
+</html>

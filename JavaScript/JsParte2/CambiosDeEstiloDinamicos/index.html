@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambios de estilo dinamicos</title>
+    <style>
+        div{
+            display: flex;
+            padding: 2vw;
+        }
+        div ul{
+            height: 250px;
+            width: 250px;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <button id="m1" onclick="estilo1()">Estilo 1</button>
+    <button id="m2" onclick="estilo2()">Estilo 2</button>
+    <button id="m3" onclick="estilo3()">Estilo 3</button>
+    <button id="m4" onclick="estilo4()">Estilo 4</button>
+
+    <h1> Lista con fashion dinamica</h1>
+    <div>
+        <ul>
+            <li>Milanesa</li>
+            <li>Elemento 2</li>
+            <li>Gabrielle</li>
+            <li>X1</li>
+            <li>Marquitos</li>
+          </ul>
+    </div>
+   
+    <script>
+        const body = document.querySelector('body')
+        const ul = document.querySelector('ul')
+        const estilo1 = ()=> {
+            body.style.backgroundColor = "#191919"
+            body.style.color = "white"
+            body.style.backgroundImage = "none"
+            ul.style.border = "3px solid red"
+        }
+        const estilo2 = ()=> {
+            body.style.backgroundImage = "url(./background.jpg)"
+            body.style.color = "red"
+            ul.style.border = "3px solid blue"
+            ul.style.backgroundColor = "yellow"
+        }
+
+        const estilo3 = ()=> {
+            ul.style.backgroundColor = "beige"
+            ul.style.color = "black"
+            ul.style.border = "3px solid yellow"
+        }
+
+        const estilo4 = ()=> {
+            ul.style.backgroundColor =  "#191919"
+            ul.style.color =  "white"
+            ul.style.border = "3px solid green"
+        }
+
+    </script>
+</body>
+</html>

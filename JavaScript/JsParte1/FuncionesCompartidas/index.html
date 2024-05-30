@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones Compartidas</title>
+    <style>
+        /* Estilo general */
+        body {
+            background-image: url('./background.jpg');
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .container{
+            background-color: white;
+            padding: 25px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            border: 3px solid grey;
+        }
+
+
+        input{
+            width: 100%;
+            height: 50px;
+            margin-bottom: 20px;
+            text-align: right;
+            font-size: 24px;
+            border: 1px solid #ccc;
+            margin-top: 8px;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .but {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e0e0e0;
+            cursor: pointer;
+        }
+
+        .func{
+            width: 140px;
+            height: 60px;
+            margin: 5px;
+            font-size: 13px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e0e0e0;
+            cursor: pointer;
+        }
+        .butcontainer > div{
+            display: flex;
+            justify-content: center;
+        }
+        .funccontainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="butcontainer">
+            <input type="text" readonly placeholder="0">
+            <div>
+                <button class="but" onclick="{onNum(1)}" id="m1">1</button>
+                <button class="but" onclick="{onNum(2)}" id="m2">2</button>
+                <button class="but" onclick="{onNum(3)}"id="m3">3</button>
+            </div>
+            <div>
+                <button class="but" onclick="{onNum(4)}" id="m4">4</button>
+                <button class="but" onclick="{onNum(5)}" id="m5">5</button>
+                <button class="but" onclick="{onNum(6)}"  id="m6">6</button>
+            </div>
+            <div>
+                <button class="but" onclick="{onNum(7)}" id="m7">7</button>
+                <button class="but" onclick="{onNum(8)}" id="m8">8</button>
+                <button class="but" onclick="{onNum(9)}" id="m9">9</button>
+            </div>
+            <div>
+                <button class="but" onclick="{onNum(0)}" id="m0">0</button> 
+            </div>
+        </div>    
+        <div class="funccontainer">
+            <button class="func" id="sumar">+</button>
+            <button class="func" id="mostrar">Muestra Acumulador</button>
+            <button class="func" id="borrarAc">Borra Acumulador</button>
+            <button class="func" id="borrarDis">Borra Display</button>
+        </div>
+    </div>
+   
+    <script>
+        let strBuf = []
+        let realBuf = []
+        const onNum = (num) => {
+            strBuf.push(num)
+            document.querySelector('input').value = strBuf.join('')
+        }
+        document.querySelector('#sumar').addEventListener('click',()=> {
+            realBuf.push(parseInt(strBuf.join('')))
+            strBuf = []
+            document.querySelector('input').value = 0
+        })
+        document.querySelector('#mostrar').addEventListener('click',()=> {
+            realBuf.push(parseInt(strBuf.join('')))
+            strBuf = []
+            let result = 0
+            for(var i = 0; i < realBuf.length; i ++)
+            {
+                if(!isNaN(realBuf[i]))
+                {
+                    result = result + realBuf[i]
+                }
+            }
+            document.querySelector('input').value = result
+            realBuf = []
+            realBuf.push(result)
+        })
+        document.querySelector('#borrarAc').addEventListener('click',()=> {
+            strBuf = []
+            realBuf = []
+        })
+        document.querySelector('#borrarDis').addEventListener('click',()=> {
+            document.querySelector('input').value = 0
+        })
+
+    </script>
+
+</body>
+
+</html>

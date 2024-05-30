@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones Sobre Input</title>
+</head>
+<body>
+    <h1>Introducir un valor en el cuadro de texto y luego pulsar el boton para ejecutar el procedimiento correspondiente</h1>
+    <input type="number" name="" id="">
+    <button id="a">Mostrar valor</button>
+    <button id="b">Sumar 1</button>
+    <button id="c">x ** 2</button>
+    <button id="d">Multiplica * 2</button>
+    <button id="e">2 ** x</button>
+
+    <script>
+        const output = (val) => {
+            document.querySelector('input').value = val
+        }
+        document.querySelector('#a').addEventListener('click',()=> {
+            var num =  parseInt(document.querySelector('input').value)
+            if(isNaN(num))
+            {
+                alert('no se ha ingresado ningun valor')
+                return
+            }
+            alert(num)
+        })
+        document.querySelector('#b').addEventListener('click',()=> {
+            var num = parseInt(document.querySelector('input').value)
+            num++
+            output(buf)
+        })
+        document.querySelector('#c').addEventListener('click',()=> {
+            var num = parseInt(document.querySelector('input').value)
+            num = num ** 2
+            output(buf)
+        })
+        document.querySelector('#d').addEventListener('click',()=> {
+            var num = parseInt(document.querySelector('input').value)
+            num = num * 2
+            output(buf)
+        })
+        document.querySelector('#e').addEventListener('click',()=> {
+            var num = parseInt(document.querySelector('input').value)
+            num = 2 ** num
+            output(buf)
+        })
+    </script>
+</body>
+</html>
