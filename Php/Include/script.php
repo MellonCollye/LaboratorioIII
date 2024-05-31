@@ -1,6 +1,4 @@
 <?php
-
-
     echo "<h1>En este ejemplo se utiliza la funcion include()</h1>";
     echo "<h1>Antes de insertar el include las variables declaradas no existen</h1>";
 
