@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Responsive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: consolas;
+        }
+
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        header {
+            padding-top: 1vh;
+            background-color: #191919;
+            color: white;
+            text-align: center;
+            height: 10%;
+        }
+
+        footer {
+            padding-top: 10px;
+            background-color: #191919;
+            color: white;
+            width: 100%;
+            height: 10%;
+            text-align: center;
+        }
+
+        .container {
+            height: 80%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            height: min-content;
+        }
+
+        thead {
+            position: relative;
+        }
+
+        td {
+            border: 2px solid black;
+            text-align: start;
+        }
+
+        th {
+            position: sticky;
+            top: -1px;
+            background-color: red;
+            border: 2px solid black;
+        }
+
+        tbody tr {
+            height: 40px;
+        }
+
+        tbody :nth-child(odd) td {
+            background-color: gray;
+        }
+
+        @media(max-width:400px) {
+            tr :last-child {
+                display: none;
+            }
+        }
+
+        @media(max-width:600px) {
+            tr :nth-child(4) {
+                display: none;
+            }
+        }
+
+        @media(max-width:800px) {
+            tr :nth-child(3) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Table</h1>
+        <button onclick="{cargarDatos()}">Cargar Datos</button>
+        <button onclick="{vaciarDatos()}">Vaciar Datos</button>
+    </header>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Mail</th>
+                    <th>Posicion</th>
+                    <th>Habilidad Promedio</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        Pie
+    </footer>
+    <script>
+
+        async function cargarJSON() {
+            try {
+                const response = await fetch('./db.json')
+                if (!response.ok) {
+                    throw new Error('Network response was not ok')
+                }
+                const data = await response.json()
+                return data.jugadores
+            } catch (error) {
+                console.error('Error al cargar el JSON:', error)
+            }
+        }
+        const cargarDatos = async () => {
+     
+            const datos = await cargarJSON()
+            const tbody = document.querySelector('tbody')
+            datos.map((jugador) => {
+                const tr = document.createElement('tr');
+
+                ['id', 'nombre', 'email', 'posicion', 'puntaje'].map(key => {
+                    const td = document.createElement('td')
+                    td.innerText = jugador[key]
+                    tr.appendChild(td)
+                });
+                tbody.appendChild(tr)
+            })
+        }
+        const vaciarDatos = () => {
+                const tbody = document.querySelector('tbody')
+                tbody.innerHTML = ''
+            }
+    </script>
+</body>
+
+</html>

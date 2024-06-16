@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Responsive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: consolas;
+        }
+
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        #a {
+            background-color: #6a6a6a;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        header {
+            padding-top: 1vh;
+            background-color: #191919;
+            color: white;
+            text-align: center;
+            height: 10%;
+        }
+
+        form {
+            height: min-content;
+            width: min-content;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: wheat;
+            display: none;
+        }
+
+        footer {
+            padding-top: 10px;
+            background-color: #191919;
+            color: white;
+            width: 100%;
+            height: 10%;
+            text-align: center;
+
+        }
+
+        .container div {
+
+            border: 3px solid #191919;
+            height: 200px;
+            width: 243px;
+            padding: 5px;
+            margin: -1px;
+        }
+
+        .container {
+            display: flex;
+            align-content: start;
+            flex-wrap: wrap;
+            width: max-content;
+            height: min-content;
+        }
+
+        .buttons {
+            background-color: red;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 15%;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .buttons input {
+            background-color: #191919;
+            color: white;
+            height: 35px;
+            min-width: 250px;
+        }
+
+        .respuesta {
+            height: 30px;
+            border-left: 3px solid #191919;
+            border-right: 3px solid #191919;
+            background-color: whitesmoke;
+            font-size: 12px;
+            overflow: auto;
+        }
+
+        @media (max-width:500px) {
+            .container div {
+                width: 100%;
+            }
+
+        }
+
+        @media (max-width:250px) {
+            .buttons input {
+                min-width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="a">
+        <button onclick="{onButton()}" style="height:70px">Abrir ventana modal</button>
+        <form action="">
+            <div class="container">
+                <div>
+                    <label for="apellido">Apellido</label><br>
+                    <input type="text" name="apellido" id="apellido">
+                </div>
+                <div>
+                    <label for="nombre">Nombre</label><br>
+                    <input type="text" name="nombre" id="nombre">
+                </div>
+
+                <div>
+                    <label for="edad">Edad</label><br>
+                    <input type="text" name="edad" id="edad">
+                </div>
+
+            </div>
+            <div class="respuesta"></div>
+            <div class="buttons">
+                <input type="submit">
+                <input type="reset">
+
+            </div>
+
+        </form>
+    </div>
+    <script>
+        const nombreContainer = document.querySelector('#nombre')
+        const edadContainer = document.querySelector('#edad')
+        const apellidoContainer = document.querySelector('#apellido')
+        const onButton = () => {
+            document.querySelector('form').style.display = 'block'
+        }
+        const getValue = () => {
+
+            const data = {
+                'apellido': apellidoContainer.value,
+                'nombre': nombreContainer.value,
+                'edad': edadContainer.value
+            }
+            console.log(data)
+            return data
+        }
+        const fetchData = async () => {
+            const data = getValue()
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }
+            try {
+                const res = await fetch('./script.php', options)
+                const resJSON = await res.json()
+                return resJSON
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        const form = document.querySelector('form')
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault()
+            showWaiting()
+            const res = await fetchData()
+            showResponse(res)
+        })
+
+        const respuesta = document.querySelector('.respuesta')
+        const showWaiting = () => {
+            respuesta.innerHTML = 'Esperando Respuesta'
+        }
+        const showResponse = (data) => {
+            respuesta.innerHTML = 'Respuesta :' + JSON.stringify(data)
+        }
+        form.addEventListener('reset', () => {
+            respuesta.innerHTML = ''
+            apellidoContainer.value =''
+            edadContainer.value= ''
+            nombreContainer.value=''
+        })
+
+    </script>
+</body>
+
+</html>

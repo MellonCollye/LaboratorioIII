@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Responsive</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: consolas;
+        }
+        html{
+            height: 100%;
+            width: 100%;
+        }
+
+        body{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        header{
+            padding-top: 1vh;
+            background-color: #191919;
+            color: white;
+            text-align: center;
+            height: 10%;
+        }
+        form{
+            height: 80%;
+            width: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        footer{
+            padding-top: 10px;
+            background-color: #191919;
+            color: white;
+            width: 100%;
+            height: 10%;
+            text-align: center;
+            
+        }
+        .container div{
+ 
+            border: 3px solid #191919;
+            height: 200px;
+            width: 243px;
+            padding: 5px;
+            margin: -1px;
+        }
+        .container{
+            max-height: max-content;
+            display: flex;
+            align-content: start;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        .buttons{
+            background-color: red;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 15%;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        .buttons input{
+            background-color: #191919;
+            color: white;
+            height: 35px; 
+            min-width: 250px;
+        }
+
+        @media (max-width:500px){
+            .container div{
+                width: 100%;
+            }
+            
+        }
+        @media (max-width:250px){
+            .buttons input{
+                min-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Formulario</h1>
+    </header>
+    <form action="">
+        <div class="container">
+            <div>
+                <label for="apellido">Apellido</label><br>
+                <input type="text" name="apellido" id="apellido">
+            </div>
+            <div>
+                <label for="nombre">Nombre</label><br>
+                <input type="text" name="nombre" id="nombre">
+            </div>
+            <div>
+                <label for="constrasenia">Contraseña</label><br>
+                <input type="password" name="contrasenia" id="contrasenia">
+            </div>
+            <div>
+                <label>Campo deshabilitado</label><br>
+                <input type="text" disabled>
+            </div>
+            <div>
+                <label for="fecha">Fecha</label><br>
+                <input type="date" id="fecha" name="fecha">
+            </div>
+            <div>
+                <label for="dni">DNI</label><br>
+                <input type="number" id="dni" name="dni">
+            </div>
+            <div>
+                <h1>Deportes</h1>
+                <label for="futbol">Futbol</label><br>
+                <input type="radio" name="futbol" id="futbol"><br>
+                <label for="voley">Voleybol</label><br>
+                <input type="radio" name="voley" id="voley"><br>
+            </div>
+            <div>
+                <h1>Genero</h1>
+                <label for="masc">Masculino</label><br>
+                <input type="radio" name="genero" id="masc"><br>
+                <label for="fem">Femenino</label><br>
+                <input type="radio" name="genero" id="fem"><br>
+            </div>
+            <div>
+                <h1>Vacio</h1>
+            </div>
+            <div>
+                <label for="estudios">Estudios</label><br>
+                <select id="estudios" name="estudios">
+                    <option value="primarios">Primario</option>
+                    <option value="secundarios">Secundario</option>
+                    <option value="terciarios">Terciario</option>
+                    <option value="universitarios">Universitario</option>
+                </select>
+            </div>
+            <div>
+                <label for="area">Area de trabajo</label><br>
+                <select id="area" name="area">
+                    <option value="administracion">Administración</option>
+                    <option value="desarrollo">Desarrollo</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="legales">Legales</option>
+                </select>
+            </div>
+            <div>
+                <label for="horario">Horario</label><br>
+                <select id="horario" name="horario">
+                    <option value="manana">Mañana</option>
+                    <option value="tarde">Tarde</option>
+                    <option value="noche">Noche</option>
+                </select>
+            </div>
+            <div>
+                <p>¿Conduce?</p><br>
+                <input type="radio" id="si" name="conduce" value="si">
+                <label for="conduce-si">Sí</label>
+                <input type="radio" id="nose" name="conduce" value="nose">
+                <label for="nose">No sé</label>
+                <input type="radio" id="no" name="conduce" value="no">
+                <label for="no">No</label>
+            </div>
+      
+        </div>
+      
+
+        <div class="buttons">
+            <input type="submit">
+            <input type="reset">
+        </div>
+
+    </form>
+    <footer>
+        Pie del formulario
+    </footer>
+</body>
+</html>

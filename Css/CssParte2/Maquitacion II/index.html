@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maquetacion II</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: consolas;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+
+        }
+
+        h1 {
+            font-size: larger;
+        }
+
+        main {
+            width: 90%;
+            height: 100%;
+        }
+
+        header,
+        footer {
+            background-color: red;
+            height: 10%;
+            border: 3px solid black;
+            text-align: center;
+
+        }
+
+        .container {
+            height: 80%;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            height: 5%;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .menu a {
+            background-color: wheat;
+            border: 3px solid black;
+            width: 100%;
+            border-left: none;
+            border-top: none;
+            text-decoration: none;
+            color: black;
+        }
+
+        .menu a:hover {
+            background-color: #6a6a6a;
+        }
+
+        .menu :first-child {
+            border-left: 3px solid black;
+        }
+
+        .view {
+            height: 95%;
+            display: flex;
+            overflow-y: auto;
+            background-color: lightblue;
+            border-left: 3px solid black;
+            border-right: 3px solid black;
+        }
+
+        .view div p {
+            width: 100%;
+        }
+
+        .view div,
+        .view p {
+            width: 20%;
+        }
+
+        .view div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        @media(max-width:1000px){
+            .view :nth-child(5){
+                display: none;
+            }
+            .view p{
+                width: 25%;
+            }
+        }
+        @media(max-width:800px){
+            .view :nth-child(4){
+                display: none;
+            }
+            .view p{
+                width: 33%;
+            }
+        }
+        @media(max-width:600px){
+            .view :nth-child(3){
+                display: none;
+            }
+            .view p{
+                width: 50%;
+            }
+            .menu{
+                flex-direction: column;
+                height: 14%;
+            }
+            .menu a{
+                border-left: 3px solid black;
+            }
+            .view{
+                height: 86%;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>El cambio climático en España: impacto y consecuencias</h1>
+        </header>
+        <div class="container">
+            <div class="menu">
+                <a href="../../../Html/Index.html">Html</a>
+                <a href="../../index.html">Css</a>
+                <a href="../../../JavaScript/index.html">Javascript</a>
+                <a href="../../../Php/index.html">Php</a>
+            </div>
+            <div class="view">
+                <p>
+                    Temperaturas más extremas, subida del niveltido que hacemos sobre todo desde nuestros pueblos y
+                    ciudades. Desde nuestras costas desde el 1 de enero al 31 de diciembre estamos vertiendo agua
+                    insuficientemente depurada e incluso sin depurar, y es así de fuerte, pero hay que ser realista”.
+                    del mar, aumento de sequías, desertización, olas de calor o inviernos más duros son algunos de los
+                    impactos que ya se dejan ver entre las consecuencias del cambio climático en España.
+                </p>
+                <p>
+                    Desde la industrialización llevada a cabo durante el siglo XX, la temperatura de nuestro planeta ha
+                    aumentado más de 1ºC, según el análisis de temperatura realizado desde desde 1880 por científicos
+                    del Instituto Goddard de Es declara San Félix. “Hay situaciones que verdaderamente asustan, y a mí
+                    me preocupan mucho, como lo que sucedió hace dos años con las nacras, el molusco más grande del
+                    Mediterráneo”.tudios Espaciales (GISS) de la NASA. Dos tercios de ese calentamiento global han
+                    ocurrido desde 1975, a una velocidad de aproximadamente 0,15 - 0,20 ° C por década. La
+                    desertificación, el riesgo de incendios, la falta de agua potable, las inundaciones, las sequías y
+                    la pérdida de cosechas están ya sobre la mesa y acechan de forma virulenta un futuro cada vez más
+                    cercano.
+                </p>
+                <p>
+                    Los científicos alertan de2. Hasta 134 especies son ya víctima de la ingestión de plástico en el
+                    Mediterráneo
+                    El vertiginoso declive de la biodiversidad es cada día mayor, y entre las especies que habitan estas
+                    aguas, Manu San Felix destaca que los “cachalotes, delfines o tortugas marinas están amenazadas por
+                    este residuo que, durante las próximas dos décadas, el mundo se enfrentará a múltiples riesgos
+                    climáticos, con el Mediterráneo como zona de especial vulnerabilidad. El nuevo informe del Grupo
+                    Intergubernamental de Expertos sobre el Cambio Climático (IPCC) de la ONU, publicado en abril de
+                    2022, lanza la misma advertencia que los anteriores: nos estamos quedando sin tiempo para dejar de
+                    utilizar los combustibles fósiles y que el cambio climático no tenga un efecto global irreversible.
+                </p>
+                <p>
+                    Además del cambio climático, el mar Mediterráneo se enfrenta a otras dos grandes amenazas: la
+                    sobrepesca y la contaminación. “Hemos perdido muchasa flora y la fauna sufren desde hace años una
+                    gran presión debido a la pesca, al turismo, al cambio climático y a la contaminación,
+                    principalmente. En menos de 70 años, el Mediterráneo ha perdido un 41% de los animales mamíferos que
+                    habitaban sus aguas y un 34% de sus peces, según un estudio publicado en Scientific Reports.
+
+                    3. La posidonia oceánica ha especies, también emblemáticas, como la foca monje del Mediterráneo que
+                    está al borde de la extinción”, afirma Manu San Félix, el explorador de National Geographic y
+                    biólogo marino que da vida al documental Salvemos nuestro Mediterráneo.</p>
+                <p> 
+                    “Si pudiéramos viajar en el tiempo y ver los paisajes sumergidos del Mediterráneo hace 40, 50 o
+                    60 años, nos daríamos cuenta de que muchos sitios no tienen nada que ver con lo que tenemos
+                    ahora. Tenían una salud y un brillo que estamos perdiendo, aunque aún se ve en algunos sitios”,
+                    afirma San Félix. “Pero no tenemos mucho tiempo para seguir diciendo que estamos a tiempo”.
+                    Entre todos los frentes que amenazan al Mediterráneo, cabe preguntarse qué suponen en el impacto
+                    real sobre nuestros ecosistemas.
+                </p>
+            </div>
+        </div>
+        <footer>
+            <h1>Pie de pagina</h1>
+        </footer>
+    </main>
+</body>
+
+</html>

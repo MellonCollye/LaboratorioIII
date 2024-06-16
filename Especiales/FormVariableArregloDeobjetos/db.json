@@ -1,0 +1,7 @@
+{   
+    "categorias":[
+        {"horarios":["Mañana", "Tarde", "Noche"]},
+        {"areas":["Administracion","Desarrollo","Marketing","Legales"]},
+        {"estudios":["Primarios","Secundarios","Terciarios","Universitarios"]}
+    ]
+}

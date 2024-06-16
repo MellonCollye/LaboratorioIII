@@ -1,0 +1,145 @@
+{ 
+    "jugadores":[
+        {
+            "id": 1,
+            "nombre": "Juan Pérez",
+            "email": "juan.perez@example.com",
+            "posicion": "Delantero",
+            "puntaje": 85
+        },
+        {
+            "id": 2,
+            "nombre": "Carlos Rodríguez",
+            "email": "carlos.rodriguez@example.com",
+            "posicion": "Defensa",
+            "puntaje": 78
+        },
+        {
+            "id": 3,
+            "nombre": "Luis Gómez",
+            "email": "luis.gomez@example.com",
+            "posicion": "Portero",
+            "puntaje": 82
+        },
+        {
+            "id": 4,
+            "nombre": "Pedro Martínez",
+            "email": "pedro.martinez@example.com",
+            "posicion": "Mediocampista",
+            "puntaje": 80
+        },
+        {
+            "id": 5,
+            "nombre": "Andrés Sánchez",
+            "email": "andres.sanchez@example.com",
+            "posicion": "Delantero",
+            "puntaje": 88
+        },
+        {
+            "id": 6,
+            "nombre": "José Ramírez",
+            "email": "jose.ramirez@example.com",
+            "posicion": "Defensa",
+            "puntaje": 76
+        },
+        {
+            "id": 7,
+            "nombre": "Diego Torres",
+            "email": "diego.torres@example.com",
+            "posicion": "Mediocampista",
+            "puntaje": 81
+        },
+        {
+            "id": 8,
+            "nombre": "Fernando López",
+            "email": "fernando.lopez@example.com",
+            "posicion": "Delantero",
+            "puntaje": 83
+        },
+        {
+            "id": 9,
+            "nombre": "Ricardo Díaz",
+            "email": "ricardo.diaz@example.com",
+            "posicion": "Defensa",
+            "puntaje": 79
+        },
+        {
+            "id": 10,
+            "nombre": "Javier Herrera",
+            "email": "javier.herrera@example.com",
+            "posicion": "Portero",
+            "puntaje": 84
+        },
+        {
+            "id": 11,
+            "nombre": "Alberto Mendoza",
+            "email": "alberto.mendoza@example.com",
+            "posicion": "Delantero",
+            "puntaje": 87
+        },
+        {
+            "id": 12,
+            "nombre": "Roberto Rivas",
+            "email": "roberto.rivas@example.com",
+            "posicion": "Defensa",
+            "puntaje": 77
+        },
+        {
+            "id": 13,
+            "nombre": "Hugo Blanco",
+            "email": "hugo.blanco@example.com",
+            "posicion": "Portero",
+            "puntaje": 85
+        },
+        {
+            "id": 14,
+            "nombre": "Raúl Castro",
+            "email": "raul.castro@example.com",
+            "posicion": "Mediocampista",
+            "puntaje": 79
+        },
+        {
+            "id": 15,
+            "nombre": "Iván Ortiz",
+            "email": "ivan.ortiz@example.com",
+            "posicion": "Delantero",
+            "puntaje": 86
+        },
+        {
+            "id": 16,
+            "nombre": "Gustavo Silva",
+            "email": "gustavo.silva@example.com",
+            "posicion": "Defensa",
+            "puntaje": 75
+        },
+        {
+            "id": 17,
+            "nombre": "Martín Vargas",
+            "email": "martin.vargas@example.com",
+            "posicion": "Mediocampista",
+            "puntaje": 82
+        },
+        {
+            "id": 18,
+            "nombre": "Felipe Morales",
+            "email": "felipe.morales@example.com",
+            "posicion": "Delantero",
+            "puntaje": 84
+        },
+        {
+            "id": 19,
+            "nombre": "Jorge Ruiz",
+            "email": "jorge.ruiz@example.com",
+            "posicion": "Defensa",
+            "puntaje": 78
+        },
+        {
+            "id": 20,
+            "nombre": "Emilio Castillo",
+            "email": "emilio.castillo@example.com",
+            "posicion": "Portero",
+            "puntaje": 83
+        }
+    ]
+   
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax y PHP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'consolas';
+        }
+
+        html,
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            height: 70%;
+            width: 90%;
+            background-color: aquamarine;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fila1 {
+            background-color: beige;
+            height: 50%;
+            display: flex;
+        }
+
+        .fila1 div {
+            width: 33.33333%;
+            overflow-wrap: break-word;
+        }
+
+        .fila1> :nth-child(2) {
+            background-color: burlywood;
+        }
+
+        .fila1> :nth-child(3) {
+            background-color: blue;
+        }
+
+        .fila2 {
+            background-color: red;
+            height: 50%;
+            display: flex;
+
+        }
+
+        .fila2> :nth-child(1) {
+            width: 33.3333%;
+        }
+
+        .fila2> :nth-child(2) {
+            width: 66.6666%;
+            background-color: cadetblue;
+        }
+        #boton{
+            display: flex;
+            justify-content: center;
+            align-items: center;    
+        }
+        #boton :hover{
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="fila1">
+            <div>
+                <h1>Dato de entrada:</h1>
+                <form>
+                    <input type="text" name="get">
+                </form>
+            </div>
+            <div id="boton">
+                <h1>Encriptar</h1>
+            </div>
+            <div>
+                <h1>Resultado:</h1>
+                <h3 style="color:white;" id="result"></h3>
+            </div>
+        </div>
+
+        <div class="fila2">
+            <div>
+                <h1>Estado de la solicitud:</h1>
+                <h2 style="color:white;" id="state"></h2>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const getValue = () => {
+            const input = document.querySelector('input')
+            const value = input.value
+            return value
+        }
+        const fetchData = async () => {
+            const data = getValue()
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }
+            try {
+                const res = await fetch('./script.php', options)
+                const resJSON = await res.json()
+                return resJSON
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        const boton = document.querySelector('#boton')
+        boton.addEventListener('click', async (e) => {
+            e.preventDefault()
+            showWaiting()
+            const res = await fetchData()
+            showResponse(res)
+        })
+        const showWaiting = () => {
+            const resultContainer = document.querySelector('#result')
+            resultContainer.innerHTML = 'Esperando respuesta...'
+            const stateContainer = document.querySelector('#state')
+            stateContainer.innerHTML = ''
+        }
+        const showResponse = (res) => {
+            const resultContainer = document.querySelector('#result')
+            const stateContainer = document.querySelector('#state')
+            stateContainer.innerHTML = res.status
+            resultContainer.innerHTML ='Palabra : '+res.received.word + ' <br> <br>md5 : <br>' +res.received.md5 + '<br><br>sha1: <br>'+res.received.sha1
+        }
+    </script>
+</body>
+
+</html>
