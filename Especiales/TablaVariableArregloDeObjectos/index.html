@@ -97,6 +97,8 @@
             }
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -124,7 +126,6 @@
         Pie
     </footer>
     <script>
-
         async function cargarJSON() {
             try {
                 const response = await fetch('./db.json')
@@ -137,25 +138,24 @@
                 console.error('Error al cargar el JSON:', error)
             }
         }
+
         const cargarDatos = async () => {
-     
             const datos = await cargarJSON()
-            const tbody = document.querySelector('tbody')
+            const $tbody = $('tbody')
             datos.map((jugador) => {
-                const tr = document.createElement('tr');
+                const $tr = $('<tr>');
 
                 ['id', 'nombre', 'email', 'posicion', 'puntaje'].map(key => {
-                    const td = document.createElement('td')
-                    td.innerText = jugador[key]
-                    tr.appendChild(td)
+                    const $td = $('<td>').text(jugador[key])
+                    $tr.append($td)
                 });
-                tbody.appendChild(tr)
+                $tbody.append($tr)
             })
         }
+
         const vaciarDatos = () => {
-                const tbody = document.querySelector('tbody')
-                tbody.innerHTML = ''
-            }
+            $('tbody').empty()
+        }
     </script>
 </body>
 

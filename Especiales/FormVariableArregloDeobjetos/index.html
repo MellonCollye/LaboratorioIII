@@ -99,6 +99,10 @@
             }
         }
     </style>
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -157,46 +161,49 @@
                 console.error('Error al cargar el JSON:', error)
             }
         }
+
         const obtenerArray = async (select) => {
             const out = []
             const data = await cargarJSON()
             data.map(categoria => {
-                    Object.keys(categoria).map(pos => {
-                    if(pos===select){
+                Object.keys(categoria).map(pos => {
+                    if (pos === select) {
                         categoria[pos].map(item => out.push(item))
                     }
-                    })
+                })
             })
             return out
         }
-        const cargarDatos =async ()=> {
-            const area = document.querySelector('#area')
-            const horario = document.querySelector("#horario")
-            const estudios = document.querySelector("#estudios")
+
+        const cargarDatos = async () => {
+            const $area = $('#area')
+            const $horario = $('#horario')
+            const $estudios = $('#estudios')
 
             const datosAreas = await obtenerArray('areas')
-            const datosEstudios =await obtenerArray('estudios')
+            const datosEstudios = await obtenerArray('estudios')
             const datosHorarios = await obtenerArray('horarios')
 
             datosAreas.map(item => {
-                const optionArea = document.createElement('option')
-                optionArea.innerText = item
-                area.appendChild(optionArea)
+                const $optionArea = $('<option>').text(item)
+                $area.append($optionArea)
             })
 
             datosEstudios.map(item => {
-                const optionArea = document.createElement('option')
-                optionArea.innerText = item
-                estudios.appendChild(optionArea)
+                const $optionEstudios = $('<option>').text(item)
+                $estudios.append($optionEstudios)
             })
+
             datosHorarios.map(item => {
-                const optionArea = document.createElement('option')
-                optionArea.innerText = item
-                horario.appendChild(optionArea)
+                const $optionHorario = $('<option>').text(item)
+                $horario.append($optionHorario)
             })
-          
         }
-        cargarDatos()
+
+        $(document).ready(() => {
+            cargarDatos()
+        })
+
     </script>
 </body>
 

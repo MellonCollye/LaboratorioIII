@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DbListaOrdenaFiltro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: consolas;
+        }
+
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        header {
+            padding-top: 1vh;
+            background-color: #191919;
+            color: white;
+            text-align: center;
+            height: 10%;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            background-color: #191919;
+            color: white;
+            width: 100%;
+            height: 10%;
+            text-align: center;
+        }
+
+        .container {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            height: min-content;
+            position: relative;
+        }
+
+        thead {
+            position: relative;
+            height: 10%;
+        }
+
+        thead>tr>th {
+            cursor: pointer;
+            width: 20%;
+        }
+
+        tfoot {
+            background-color: red;
+            height: 5%;
+        }
+
+        input {
+            height: 40px;
+            color: black;
+            width: 100%;
+        }
+
+        .displayer {
+            height: min-content;
+        }
+
+        table {
+            height: 100%;
+        }
+
+        td {
+            height: min-content;
+            border: 2px solid black;
+            text-align: start;
+        }
+
+        tbody>tr {
+            height: min-content;
+            block-size: 30px;
+        }
+
+        th {
+            position: sticky;
+            top: -1px;
+            background-color: red;
+            border: 2px solid black;
+        }
+
+        tbody :nth-child(odd) td {
+            background-color: gray;
+        }
+
+
+        select {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ordenarpor {
+            background-color: #191919;
+            display: flex;
+            color: white;
+            flex-direction: row;
+        }
+
+        .ordenarpor>input {
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Table</h1>
+        <button id="cargar">Cargar Datos</button>
+        <button id="limpiar">Vaciar Datos</button>
+
+    </header>
+    <div class="ordenarpor">
+        <p>Ordenar por :</p>
+        <input readonly>
+        <button>Reestablecer</button>
+    </div>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="headcell">Id</th>
+                    <th class="headcell">Nombre</th>
+                    <th class="headcell">Estilo</th>
+                    <th class="headcell">Epoca</th>
+                    <th class="headcell">Salario</th>
+                </tr>
+                <tr>
+                    <th><input type="text" name="filterId" id="filterId" placeholder="Buscar Id"></th>
+                    <th><input type="text" name="filterNombre" id="filterNombre" placeholder="Buscar Nombre"></th>
+                    <th><select name="filterEstilo" id="filterEstilo"></select></th>
+                    <th><input type="text" name="filterEpoca" id="filterEpoca" placeholder="Filtrar por epoca"></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="displayer"></tbody>
+
+        </table>
+    </div>
+    <footer>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="footcell">Id</th>
+                        <th class="footcell">Nombre</th>
+                        <th class="footcell">Estilo</th>
+                        <th class="footcell">Epoca</th>
+                        <th class="footcell">Salario</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        const getData = () => {
+            let data = {
+                id: $('#filterId').val(),
+                nombre: $('#filterNombre').val(),
+                estilo: $('#filterEstilo').val(),
+                epoca: $('#filterEpoca').val(),
+                order: $('.ordenarpor input').val()
+            };
+            return data
+        }
+
+
+        //Hacer req con los parametros para ordenar y filtrar
+        const cargarDatos = async () => {
+            try {
+                const response = await $.ajax({
+                    type: 'GET',
+                    url: 'controlador.php/data',
+                    dataType: 'json',
+                    data: { ...getData() }
+                });
+                console.log(response)
+                return response;
+            } catch (error) {
+                console.error('Error en la solicitud /data: ', error);
+            }
+        }
+        const cargarOptions = async () => {
+            try {
+                const res = await $.ajax({
+                    type: 'GET',
+                    url: 'controlador.php/options'
+                });
+                return res;
+            } catch (error) {
+                console.error('Error en la solicitud /options: ', error);
+            }
+        }
+
+        //Cargar Options del select del campo parametrizable
+        $(() => {
+            const cargarSelect = async () => {
+
+                const options = await cargarOptions()
+                console.log(options)
+                const select = $('#filterEstilo')
+                select.append($('<option>', {
+                    value: '',
+                    text: ''
+                }));
+
+                $.each(options, (index, item) => {
+                    select.append($('<option>', {
+                        value: item.estilo,
+                        text: item.estilo
+                    }));
+                });
+            }
+            cargarSelect()
+        })
+
+        //Boton para cargar tabla
+        $(document).ready(async () => {
+            $('#cargar').on('click', async () => {
+                const tbody = $('.displayer')
+                tbody.html('<p>Esperando Respuesta...<p>')
+                const datos = await cargarDatos()
+                tbody.html('')
+                datos.map((item) => {
+                    const tr = $('<tr>');
+
+                    ['id', 'nombre', 'estilo', 'epoca', 'salario'].map(key => {
+                        const td = $('<td>').text(item[key])
+                        tr.append(td)
+                    });
+                    tbody.append(tr)
+                })
+            })
+        })
+
+        //Boton para limpiar tabla
+        $('#limpiar').on('click', () => {
+            $('tbody').empty()
+        })
+        //Cargar tipo de orden en input
+        $(() => {
+            $('.headcell , .footcell').on('click', function () {
+                var order = $(this).text();
+                $('.ordenarpor input').each(function () {
+                    $(this).val(order);
+                });
+            });
+        });
+        //Limpiar input
+        $('.ordenarpor button').on('click', () => {
+            $('.ordenarpor input').val('');
+        })
+
+        const cargar = async () => {
+            const tbody = $('.displayer')
+            tbody.html('<p>Esperando Respuesta...<p>')
+            const datos = await cargarDatos()
+            tbody.html('')
+            datos.map((item) => {
+                const tr = $('<tr>');
+
+                ['id', 'nombre', 'estilo', 'epoca', 'salario'].map(key => {
+                    const td = $('<td>').text(item[key])
+                    tr.append(td)
+                });
+                tbody.append(tr)
+            })
+        }
+        cargar()
+
+    </script>
+
+</body>
+
+</html>
