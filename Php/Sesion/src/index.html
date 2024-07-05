@@ -185,27 +185,34 @@
             width: 100px;
         }
 
-        .pdfModal{
+        .pdfModal {
             border: 4px solid #191919;
             width: 50%;
             max-width: 500px;
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             background-color: white;
             display: none;
+            flex-direction: column;
         }
-        .pdfModal > form {
+
+        .pdfModal>form {
             display: flex;
             justify-content: space-between;
             padding: 3px;
             border: 2px solid red;
             width: 100%;
         }
-        .pdfModal > input {
+
+        .pdfModal>input {
             background-color: white;
-           
+        }
+
+        .cuadroContainer {
+            height: 400px;
+            border: 2px solid red;
         }
     </style>
 </head>
@@ -216,6 +223,7 @@
         <button id="cargar">Cargar Datos</button>
         <button id="limpiar">Vaciar Datos</button>
         <button id="altaBtn">Agregar Registro</button>
+        <button onclick="{window.location.href = '../destroySession.php'}">cerrarSesion</button>
     </header>
     <div class="ordenarpor">
         <p>Ordenar por :</p>
@@ -267,7 +275,7 @@
         <div class="btn">
             <button id="modalSalir">Salir</button>
         </div>
-        <form>
+        <form id="formCreate">
             <input type="text" name="id" id="inputId" hidden>
             <label for="inputNombre">Nombre</label>
             <input type="text" name="nombre" id="inputNombre" required>
@@ -292,32 +300,82 @@
         </div>
     </div>
     <div class="pdfModal">
-        <form id="formpdf">
-            <input type="file" id="image" name="image">
-            <div>
-                <input type="submit" id="subirPdf"/>
+        <iframe class="cuadroContainer"></iframe>
+        <form id="formPdf" enctype="multipart/form-data">
+            <input type="file" id="image" name="image" required>
+            <div style="display: flex;">
+                <input type="text" id="idPdf" name="idPdf" hidden>
+                <input type="submit" id="subirPdf" />
                 <button type="button" id="cerrarFormPdf" onclick="{cerrarFormpdf()}">Cerrar</button>
             </div>
         </form>
     </div>
-
-
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-        <script>
-            
-            const cerrarFormpdf = ()=> {
-                $('.pdfModal').css({
-                    'display':'none'
-                })
-            }
-            $('#formpdf').on('submit',(e)=> {
-                e.preventDefault();
-                console.log('hola');
-            })
-    
-        </script>
+
     <script>
+
+        const cerrarFormpdf = () => {
+            $('.pdfModal').css({
+                'display': 'none'
+            })
+            var iframe = $('iframe');
+            iframe.attr('srcdoc', '');
+            $('#idPdf').val('')
+            $('#image').val('');
+        }
+
+        $('#image').change(function () {
+            var file = this.files[0];
+            var reader = new FileReader();
+
+            reader.readAsDataURL(file);
+
+            reader.onload = function (e) {
+                var imageDataUrl = e.target.result;
+                var iframe = $('iframe');
+                iframe.attr('srcdoc', '<img src="' + imageDataUrl + '" style="width:100%;height:100%;" alt="Imagen seleccionada">');
+            };
+        });
+
+        $('#formPdf').on('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            try {
+                const response = await $.ajax({
+                    type: 'POST',
+                    url: 'upload.php',
+                    data: formData,  
+                    contentType: false,  
+                    processData: false
+                });
+                $('.pdfModal').css({
+                'display': 'none'
+                })
+            } catch (error) {
+                console.error('Error en la solicitud:', error);
+            }
+        })
+
+        const cargarFormpdf = async (id) => {
+            try {
+                const response = await $.ajax({
+                    type: 'POST',
+                    url: 'openImg.php',
+                    data: { id }
+                });
+
+                if (response) {
+                    var iframe = $('iframe');
+                    iframe.attr('srcdoc', '<img src="data:image/jpeg;base64,' + response + '" style="width:100%;height:100%;" alt="Imagen seleccionada">');
+                } else {
+                    console.error('La respuesta está vacía o no contiene datos válidos.');
+                }
+            } catch (error) {
+                console.error('Error en la solicitud:', error);
+            }
+        }
         const getData = () => {
             let data = {
                 id: $('#filterId').val(),
@@ -529,10 +587,13 @@
                 });
             })
 
-            $('.pdfBtn').on('click', () => {
+            $('.pdfBtn').on('click', function () {
                 $('.pdfModal').css({
-                    'display':'flex'
+                    'display': 'flex'
                 })
+                const datos = arrayficarDatos($(this))
+                $('#idPdf').val(datos[0]);
+                cargarFormpdf(datos[0]);
             })
         }
 
@@ -553,7 +614,7 @@
         }
 
         $(() => {
-            $('form').on('submit', async function (e) {
+            $('#formCreate').on('submit', async function (e) {
                 e.preventDefault();
                 const data = getDataObject(e.target)
                 if (data.id) {
