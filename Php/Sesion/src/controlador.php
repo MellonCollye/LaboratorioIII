@@ -6,8 +6,8 @@ If(!isset($_SESSION['idSesion'])) {
 
 include('./modelo.php');
 $requestMethod = $_SERVER['REQUEST_METHOD'];
-$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
+$capPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$path = strtolower($capPath);
 function handleGetData($params) {
     header('Content-Type: application/json');
     readPintores($params);
@@ -35,18 +35,16 @@ function handleDeleteData($params) {
 
 $routes = [
     'GET' => [
-        '/LaboratorioIII/Php/Sesion/src/controlador.php/data' => 'handleGetData',
-        '/LaboratorioIII/Php/Sesion/src/controlador.php/options' => 'handleGetOptions'
+        '/laboratorioiii/php/sesion/src/controlador.php/data' => 'handleGetData',
+        '/laboratorioiii/php/sesion/src/controlador.php/options' => 'handleGetOptions'
     ],
     'POST' => [
-        '/LaboratorioIII/Php/Sesion/src/controlador.php/data' => 'handlePostData'
+        '/laboratorioiii/php/sesion/src/controlador.php/data' => 'handlePostData',
+         '/laboratorioiii/php/sesion/src/controlador.php/delete' => 'handleDeleteData'
     ],
     'PATCH' => [
-        '/LaboratorioIII/Php/Sesion/src/controlador.php/data' => 'handlePatchData'
+        '/laboratorioiii/php/sesion/src/controlador.php/data' => 'handlePatchData'
     ],
-    'DELETE' => [
-        '/LaboratorioIII/Php/Sesion/src/controlador.php/data' => 'handleDeleteData'
-    ]
 ];
 
 if (isset($routes[$requestMethod][$path])) {

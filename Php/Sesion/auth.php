@@ -5,8 +5,8 @@ function auth($name, $password){
     $host = "localhost";
     $dbuser = "gaspi";
     $dbpassword = "1234";
-    
     try {
+     
         $pdo = new PDO("mysql:host=$host;dbname=$dbname", $dbuser, $dbpassword);
     
         $hashed_password = hash('sha256', $password); 
@@ -18,8 +18,9 @@ function auth($name, $password){
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
+           
             if ($hashed_password === $user['password']) {
-
+                
                 $updateQuery = "UPDATE users SET sessionCount = :sessionCount WHERE login =:name";
                 $stmt = $pdo->prepare($updateQuery);
 
@@ -39,7 +40,7 @@ function auth($name, $password){
             return false;
         }
     } catch (PDOException $e) {
-        return false;
+        echo $e;
     }
 }
 

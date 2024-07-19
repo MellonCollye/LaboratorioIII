@@ -1,9 +1,9 @@
 <?php
 include('./auth.php');
-
+$json = '';
 session_start();
 If(isset($_SESSION['idSesion'])) {
-    echo json_encode(['sessionCount' => getSessionCount($_POST['user'])]);
+    $json = json_encode(['sessionCount' => getSessionCount($_POST['user'])]);
     exit;
 }
 
@@ -15,7 +15,9 @@ if ( auth( $user, $password ) ) {
     $_SESSION['idSesion'] = session_create_id();
     $_SESSION['name'] = $user;
 
-    echo json_encode(['sessionCount' => getSessionCount($user)]);
+    $json = json_encode(['sessionCount' => getSessionCount($user)]);
 }
+
+echo $json;
 
 ?> 

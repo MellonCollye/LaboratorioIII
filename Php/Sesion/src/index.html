@@ -219,7 +219,7 @@
 
 <body>
     <header>
-        <h1>Table</h1>
+        <h1>Manejo de Sesion</h1>
         <button id="cargar">Cargar Datos</button>
         <button id="limpiar">Vaciar Datos</button>
         <button id="altaBtn">Agregar Registro</button>
@@ -676,14 +676,14 @@
         const sendReqDelete = async (data) => {
             try {
                 const response = await $.ajax({
-                    type: 'DELETE',
-                    url: 'controlador.php/data',
+                    type: 'POST',
+                    url: 'controlador.php/delete',
                     dataType: 'json',
                     data: { ...data }
                 });
                 return response;
             } catch (error) {
-                console.error('Error en la solicitud /data: ', error);
+                console.error('Error en la solicitud /delete: ', error);
             }
         }
 

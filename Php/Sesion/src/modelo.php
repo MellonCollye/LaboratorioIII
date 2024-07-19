@@ -121,7 +121,6 @@ function runQuery($query, $bindParams = []) {
             $stmt = $dbConn->prepare($query);
 
             foreach ($bindParams as $key => $value) {
-                echo json_encode($bindParams);
                 if (isset($bindParams[$key])) {
                     $stmt->bindValue($key, $value);
                 }
